@@ -1,4 +1,3 @@
 #!/bin/sh
 
-echo "Hits hook 'all'"
-export
+echo "Hook fired: all"

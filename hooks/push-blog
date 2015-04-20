@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "Hook fired: push-blog"
+
+cd ~/fun/blog
+echo $PWD
+git fetch origin
+git reset --hard origin/master
+docker run --rm -v "$PWD:/src" grahamc/jekyll build

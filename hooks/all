@@ -1,3 +1,6 @@
 #!/bin/sh
 
 echo "Hook fired: all"
+docker stop nginx-vhosts
+docker rm nginx-vhosts
+docker run --name nginx-vhosts -p 80:80 --link sykartdata:sykartdata --link blog:blog --link mud2net:mud2net -d nginx

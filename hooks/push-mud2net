@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo "Hook fired: push-mud2net"
+
+cd ~/fun/mud2net
+echo $PWD
+git fetch origin
+git reset --hard origin/master
+docker build -t mud2net .
+docker stop mud2net
+docker rm mud2net
+docker run --name mud2net -p 8000:3000 -d mud2net

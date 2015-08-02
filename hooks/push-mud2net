@@ -11,6 +11,6 @@ docker stop mud2net
 docker rm mud2net
 docker run --name mud2net -p 8000:3000 -d mud2net
 
-docker stop nginx
-docker rm nginx
-docker run --name nginx-vhosts -p 80:80 --link sykartdata:sykartdata --link blog:blog --link mud2net:mud2net -d nginx -a
+docker stop nginx-vhosts
+docker rm nginx-vhosts
+docker run --name nginx-vhosts -p 80:80 --link sykartdata:sykartdata --link blog:blog --link mud2net:mud2net -d nginx-vhosts

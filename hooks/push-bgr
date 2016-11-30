@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo "Hook fired: push-bgr"
+
+cd ~/fun/board-game-recommendations
+echo $PWD
+git fetch origin
+git reset --hard origin/master
+docker build -t bgr .
+docker stop bgr
+docker rm bgr
+docker run --name bgr -p 5000:5000 -d bgr
